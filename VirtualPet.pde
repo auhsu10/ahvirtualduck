@@ -1,3 +1,5 @@
+int beakpos=0;
+int y=206;
 
 void setup() {
   size(500,500);
@@ -29,15 +31,33 @@ void draw() {
   ellipse(186,192,8,8);
   //beak
   fill(191,112,8);
-  triangle(156,215,135,214,152,201);
-  triangle(156,212,135,214,152,201);
-  triangle(156,215,135,208,152,201);
+  triangle(156,215,135,214,152,206);
+  triangle(156,212,135,214,152,206);
+  triangle(156,215,135,y,152,201);
+  if (beakpos==0) {
+    y=206;
+  }
+  else if (beakpos==1) {
+    y=214;
+  }
   //details
   noFill();
-  arc(225,250,85,40,PI/2,PI+PI/2);
-  line(225,230,270,235);
-  line(225,270,270,265);
-  arc(265,240,45,10,PI+PI/2,PI+PI+PI/2);
-  arc(265,250,45,10,PI+PI/2,PI+PI+PI/2);
-  arc(265,260,45,10,PI+PI/2,PI+PI+PI/2);
+  arc(225,252,85,40,PI/2,PI+PI/2);
+  line(225,232,270,239);
+  line(225,272,265,269);
+  arc(265,244,50,10,PI+PI/2+PI/12,PI+PI+PI/2+PI/12);
+  arc(265,254,50,10,PI+PI/2+PI/16,PI+PI+PI/2+PI/16);
+  arc(265,264,50,10,PI+PI/2,PI+PI+PI/2);
+}
+
+void mousePressed() {
+  if (beakpos==0) {
+    beakpos=1;
+  }
+}
+
+void mouseReleased() {
+  if (beakpos==1) {
+    beakpos=0;
+  }
 }
